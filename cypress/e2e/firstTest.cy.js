@@ -5,7 +5,7 @@ describe('Test Suite', () => {
     cy.title().should('eq', 'Google')
   })
 
-  it('Test 2 - Negative', () => {
+  it('Test 2 - Negative', function() {
     cy.visit('https://www.google.com')
     cy.title().should('eq', 'Facebook')
   })
