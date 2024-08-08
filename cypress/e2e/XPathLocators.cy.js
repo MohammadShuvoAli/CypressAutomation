@@ -1,5 +1,3 @@
-require('cypress-xpath');
-
 describe('XPathLocators', () => {
     it('find no of products', () => {
         cy.visit("https://tutorialsninja.com/demo/index.php")
