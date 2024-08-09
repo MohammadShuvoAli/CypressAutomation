@@ -19,7 +19,18 @@ describe("Assertions", () => {
 
         cy.title().should('include', 'Orange')
         .and('eq', 'OrangeHRM')
-        .and('contain', 'hrm')
+        .and('contain', 'HRM') // contain case sensitive
+
+        cy.get('.orangehrm-login-branding > img').should('be.visible') // logo visible
+        .and('exist') // logo exist
+
+        cy.xpath("//a").should('have.length', '5') // no of links
+
+        // fill form
+        cy.get("input[placeholder='Username']").type("Admin")
+        cy.get("input[placeholder='Password']").type("admin123")
+        // login
+        cy.get("button[type='submit']").click()
 
     })
 })
