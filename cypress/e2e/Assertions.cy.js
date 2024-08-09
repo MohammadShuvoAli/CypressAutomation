@@ -34,6 +34,7 @@ describe("Assertions", () => {
 
         // logout
         cy.get('.oxd-userdropdown-tab').click()
+        cy.wait(1000); // Waits for 1 seconds
         cy.get(':nth-child(4) > .oxd-userdropdown-link').click()
     
 
