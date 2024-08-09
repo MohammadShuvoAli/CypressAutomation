@@ -32,5 +32,10 @@ describe("Assertions", () => {
         // login
         cy.get("button[type='submit']").click()
 
+        // logout
+        cy.get('.oxd-userdropdown-tab').click()
+        cy.get(':nth-child(4) > .oxd-userdropdown-link').click()
+    
+
     })
 })
