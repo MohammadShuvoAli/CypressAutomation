@@ -17,5 +17,9 @@ describe("Assertions", () => {
         .and('contain', 'orangehrm')
         .and('not.contain', 'redhrm')
 
+        cy.title().should('include', 'Orange')
+        .and('eq', 'OrangeHRM')
+        .and('contain', 'hrm')
+
     })
 })
