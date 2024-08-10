@@ -27,12 +27,14 @@ describe("Handle Dropdown", () => {
     it("dynamic dropdown", () => {
         cy.visit("https://www.google.com")
 
-        cy.get("input[name='q']").type("cypress automation")
+        cy.get("#APjFqb").type("cypress automation")
         cy.get("div.wM6W7d").each(($el, index, $list) => {
-            if($el.text()=="cypress automation tool"){
+            if($el.text()=="cypress automation jobs"){
                 cy.wrap($el).click()
             }
         })
+
+        cy.get("#APjFqb").should("have.text", "cypress automation jobs")
         
     })
 })
