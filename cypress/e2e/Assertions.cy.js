@@ -27,8 +27,8 @@ describe("Assertions", () => {
         cy.xpath("//a").should('have.length', '5') // no of links
 
         // fill form
-        cy.get("input[placeholder='Username']").type("Admin")
-        cy.get("input[placeholder='Password']").type("admin123")
+        cy.get("input[placeholder='username']").type("Admin")
+        cy.get("input[placeholder='password']").type("admin123")
         // login
         cy.get("button[type='submit']").click()
 
@@ -36,7 +36,10 @@ describe("Assertions", () => {
         cy.get('.oxd-userdropdown-tab').click()
         cy.wait(1000); // Waits for 1 seconds
         cy.get(':nth-child(4) > .oxd-userdropdown-link').click()
-    
+    })
 
+    it("Explicit Assertions", () => {
+        cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php")
+        
     })
 })
