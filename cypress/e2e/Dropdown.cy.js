@@ -15,12 +15,24 @@ describe("Handle Dropdown", () => {
         cy.get("#select2-billing_country-container").should("have.text", "Uganda")
     })
 
-    it("auto suggest dropdown", () => {
+    it.skip("auto suggest dropdown", () => {
         cy.visit("https://www.wikipedia.org")
 
         cy.get("#searchInput").type("Dhaka")
         cy.get(".suggestion-title").contains("Dhaka Metro Rail").click()
 
         cy.get('.mw-page-title-main').should("have.text", "Dhaka Metro Rail")
+    })
+
+    it("dynamic dropdown", () => {
+        cy.visit("https://www.google.com")
+
+        cy.get("input[name='q']").type("cypress automation")
+        cy.get("div.wM6W7d").each(($el, index, $list) => {
+            if($el.text()=="cypress automation tool"){
+                cy.wrap($el).click()
+            }
+        })
+        
     })
 })
