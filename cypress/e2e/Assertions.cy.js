@@ -40,6 +40,31 @@ describe("Assertions", () => {
 
     it("Explicit Assertions", () => {
         cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php")
+
+        // fill form
+        cy.get("input[placeholder='username']").type("Admin")
+        cy.get("input[placeholder='password']").type("admin123")
+        // login
+        cy.get("button[type='submit']").click()
+
+        let expectedText = "Dashboard"
+
+        cy.get(".oxd-text.oxd-text--h6.oxd-topbar-header-breadcrumb-module").then((x) => {
+            let actualText = x.text()
+
+            // BDD Style
+            expect(actualText).to.equal(expectedText)
+            expect(actualText).to.not.equal("Portal")
+
+            // TDD Style
+            assert.equal(expectedText, actualText)
+            assert.notEqual(expectedText, "Portal")
+        })
+
+
+
+
+        
         
     })
 })
