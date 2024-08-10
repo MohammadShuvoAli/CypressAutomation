@@ -1,5 +1,5 @@
 describe("Handle Dropdown", () => {
-    it.skip("dropdown with select", () => {
+    it("dropdown with select", () => {
         cy.visit("https://www.zoho.com/commerce/free-demo.html")
 
         cy.get("#zcf_address_country")
@@ -7,7 +7,7 @@ describe("Handle Dropdown", () => {
         .should("have.value", "Uganda")
     })
 
-    it.skip("dropdown without select", () => {
+    it("dropdown without select", () => {
         cy.visit("https://www.dummyticket.com/dummy-ticket-for-visa-application/")
 
         cy.get("#select2-billing_country-container").click()
@@ -15,7 +15,7 @@ describe("Handle Dropdown", () => {
         cy.get("#select2-billing_country-container").should("have.text", "Uganda")
     })
 
-    it.skip("auto suggest dropdown", () => {
+    it("auto suggest dropdown", () => {
         cy.visit("https://www.wikipedia.org")
 
         cy.get("#searchInput").type("Dhaka")
@@ -34,7 +34,7 @@ describe("Handle Dropdown", () => {
             }
         })
 
-        cy.get("#APjFqb").should("have.text", "cypress automation jobs")
+        cy.get("#APjFqb").should("have.value", "cypress automation jobs")
         
     })
 })
