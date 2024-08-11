@@ -1,6 +1,6 @@
 describe("Alerts", () => {
     // Javascript Alert: It wil have some text and 'OK' button
-    it.skip("javascript alert", () => {
+    it("javascript alert", () => {
         cy.visit("https://the-internet.herokuapp.com/javascript_alerts")
         cy.get("button[onclick='jsAlert()']").click()
         // js alert validation
