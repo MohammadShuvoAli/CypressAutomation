@@ -24,4 +24,19 @@ describe("Alerts", () => {
         // alert window automatically closed (Pressing Confirm) by cypress
         cy.get("#result").should("have.text", "You clicked: Ok")
     })
+
+    it("javascript confirm alert - Cancel", () => {
+        cy.visit("https://the-internet.herokuapp.com/javascript_alerts")
+        cy.get("button[onclick='jsConfirm()']").click()
+        // js alert validation
+        cy.on("window:confirm",(message) => {
+            expect(message).to.contains("I am a JS Confirm")
+        })
+
+        // close alert pressing cancel button
+        cy.on("window:confirm", ()=> false)
+
+        // alert window automatically closed (Pressing Confirm) by cypress
+        cy.get("#result").should("have.text", "You clicked: Cancel")
+    })
 })
