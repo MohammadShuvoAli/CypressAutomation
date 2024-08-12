@@ -58,7 +58,7 @@ describe("Alerts", () => {
     })
 
     it("javascript prompt alert - cancel", () => {
-        cy.visit("https://the-internet.herokuapp.com/javascript_alerts");
+        cy.visit("https://the-internet.herokuapp.com/javascript_alerts")
     
         // Handle the prompt and simulate pressing "Cancel"
         cy.window().then((win) => {
@@ -69,8 +69,12 @@ describe("Alerts", () => {
         cy.get("button[onclick='jsPrompt()']").click();
     
         // Verify the result
-        cy.get("#result").should("have.text", "You entered: null");
-    });
-    
+        cy.get("#result").should("have.text", "You entered: null")
+    })
 
+    it.only("authenticated alert", () => {
+        // method 1
+        cy.visit("https://the-internet.herokuapp.com/basic_auth", {auth: {username: "admin", password:"admin"}})
+
+    })
 })
