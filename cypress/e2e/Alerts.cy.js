@@ -10,7 +10,6 @@ describe("Alerts", () => {
 
         // alert window automatically closed (Pressing OK) by cypress
         cy.get("#result").should("have.text", "You successfully clicked an alert")
-        
     })
 
     // Javascript Confirm Alert: It will have some text with 'OK' and 'Cancel' buttons
@@ -24,7 +23,6 @@ describe("Alerts", () => {
 
         // alert window automatically closed (Pressing Confirm) by cypress
         cy.get("#result").should("have.text", "You clicked: Ok")
-
     })
 
     it("javascript confirm alert - Cancel", () => {
@@ -40,7 +38,6 @@ describe("Alerts", () => {
 
         // alert window automatically closed (Pressing Confirm) by cypress
         cy.get("#result").should("have.text", "You clicked: Cancel")
-
     })
 
     // Javascript Prompt Alert: It will have a textbox for user input with 'OK' button 
@@ -78,7 +75,7 @@ describe("Alerts", () => {
         cy.get("div[class='example'] p").should("have.contain", "Congratulations!")
     })
 
-    it.only("authenticated alert - method 2", () => {
+    it("authenticated alert - method 2", () => {
         cy.visit("https://admin:admin@the-internet.herokuapp.com/basic_auth")
 
         cy.get("div[class='example'] p").should("have.contain", "Congratulations!")
