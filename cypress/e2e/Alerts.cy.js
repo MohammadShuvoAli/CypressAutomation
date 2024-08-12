@@ -10,6 +10,7 @@ describe("Alerts", () => {
 
         // alert window automatically closed (Pressing OK) by cypress
         cy.get("#result").should("have.text", "You successfully clicked an alert")
+        
     })
 
     // Javascript Confirm Alert: It will have some text with 'OK' and 'Cancel' buttons
@@ -23,6 +24,7 @@ describe("Alerts", () => {
 
         // alert window automatically closed (Pressing Confirm) by cypress
         cy.get("#result").should("have.text", "You clicked: Ok")
+
     })
 
     it("javascript confirm alert - Cancel", () => {
@@ -38,5 +40,6 @@ describe("Alerts", () => {
 
         // alert window automatically closed (Pressing Confirm) by cypress
         cy.get("#result").should("have.text", "You clicked: Cancel")
+
     })
 })
