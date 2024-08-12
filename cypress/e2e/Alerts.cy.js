@@ -44,7 +44,7 @@ describe("Alerts", () => {
     })
 
     // Javascript Prompt Alert: It will have a textbox for user input with 'OK' button 
-    it.only("javascript prompt alert", () => {
+    it("javascript prompt alert", () => {
         cy.visit("https://the-internet.herokuapp.com/javascript_alerts")
         
         cy.window().then((win) => {
@@ -56,5 +56,21 @@ describe("Alerts", () => {
 
         cy.get("#result").should("have.text", "You entered: Hi! I am Shuvo")
     })
+
+    it("javascript prompt alert - cancel", () => {
+        cy.visit("https://the-internet.herokuapp.com/javascript_alerts");
+    
+        // Handle the prompt and simulate pressing "Cancel"
+        cy.window().then((win) => {
+            cy.stub(win, "prompt").returns(null); // Simulate clicking "Cancel"
+        });
+    
+        // Trigger the prompt
+        cy.get("button[onclick='jsPrompt()']").click();
+    
+        // Verify the result
+        cy.get("#result").should("have.text", "You entered: null");
+    });
+    
 
 })
