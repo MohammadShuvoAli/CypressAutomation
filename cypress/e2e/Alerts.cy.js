@@ -42,4 +42,19 @@ describe("Alerts", () => {
         cy.get("#result").should("have.text", "You clicked: Cancel")
 
     })
+
+    // Javascript Prompt Alert: It will have a textbox for user input with 'OK' button 
+    it.only("javascript prompt alert", () => {
+        cy.visit("https://the-internet.herokuapp.com/javascript_alerts")
+        
+        cy.window().then((win) => {
+            cy.stub(win, "prompt").returns("Hi! I am Shuvo")
+        })
+
+        // alert window automatically closed (Pressing Confirm) by cypress
+        cy.get("button[onclick='jsPrompt()']").click()
+
+        cy.get("#result").should("have.text", "You entered: Hi! I am Shuvo")
+    })
+
 })
