@@ -72,9 +72,15 @@ describe("Alerts", () => {
         cy.get("#result").should("have.text", "You entered: null")
     })
 
-    it.only("authenticated alert", () => {
-        // method 1
+    it("authenticated alert - method 1", () => {
         cy.visit("https://the-internet.herokuapp.com/basic_auth", {auth: {username: "admin", password:"admin"}})
 
+        cy.get("div[class='example'] p").should("have.contain", "Congratulations!")
+    })
+
+    it.only("authenticated alert - method 2", () => {
+        cy.visit("https://the-internet.herokuapp.com/basic_auth", {auth: {username: "admin", password:"admin"}})
+
+        cy.get("div[class='example'] p").should("have.contain", "Congratulations!")
     })
 })
