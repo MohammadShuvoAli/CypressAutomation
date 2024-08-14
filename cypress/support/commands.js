@@ -25,3 +25,13 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 /// <reference types="Cypress"/> // for cypress
 /// <reference types="cypress-xpath"/> // for xpath
+
+Cypress.Commands.add('getIframe', (iframe) => {
+    // Get the iframe and access its body
+    return cy.get(iframe).its("0.contentDocument.body").should("be.visible")
+        .then((body) => {
+            // Change the contenteditable attribute to true
+            cy.wrap(body).invoke('attr', 'contenteditable', 'true');
+            return cy.wrap(body); // Return the wrapped body to continue chaining
+        });
+});
