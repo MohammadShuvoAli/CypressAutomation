@@ -13,4 +13,10 @@ describe("Handling iFrame", () => {
                 cy.wrap(body).clear().type("Hi! I am Shuvo. {ctrl+a}");
             });
     });
+
+    it("handling iframe - custom command", () => {
+        cy.visit("https://the-internet.herokuapp.com/iframe");
+
+        cy.getIframe("#mce_0_ifr").clear().type("Hi! I am Shuvo.");
+    });
 });
