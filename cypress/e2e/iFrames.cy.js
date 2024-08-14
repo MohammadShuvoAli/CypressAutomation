@@ -1,5 +1,5 @@
 describe("Handling iFrame", () => {
-    it("handling iframe - method 1", () => {
+    it("handling iframe with code", () => {
         cy.visit("https://the-internet.herokuapp.com/iframe");
 
         // Access the iframe's body
@@ -18,5 +18,13 @@ describe("Handling iFrame", () => {
         cy.visit("https://the-internet.herokuapp.com/iframe");
 
         cy.getIframe("#mce_0_ifr").clear().type("Hi! I am Shuvo.");
+    });
+
+    it("handling iframe - cypress-iframe plugin", () => {
+        cy.visit("https://the-internet.herokuapp.com/iframe");
+
+        cy.frameLoaded("#mce_0_ifr"); // load the frame
+        cy.iframe("#mce_0_ifr").clear().type("Hi! I am Shuvo.")
+
     });
 });
