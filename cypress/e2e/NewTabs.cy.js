@@ -11,7 +11,7 @@ describe("Handle New Tabs", () => {
     })
 
     it("new tab handle - method 2", () => {
-        // for this parent and child window both needs to same website
+        // for this parent and child window both needs to same website/domain
         cy.visit("https://the-internet.herokuapp.com/windows")
         
         cy.get("a[href='/windows/new']").then((element) => {
