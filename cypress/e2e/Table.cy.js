@@ -28,4 +28,27 @@ describe('Handle Tables', () => {
             })
         })
     })
+
+    it.only('read all rows & columns data in the first page', () => {
+        cy.visit("https://testautomationpractice.blogspot.com/")
+        
+        let totalPages = 4;
+
+        for(let p=1; p<=totalPages; p++){
+            if(totalPages > 1){
+                cy.log("Active page is " + p)
+                cy.get("ul#pagination>li:nth-child("+ p +")").click()
+
+                // reading all cell data
+                cy.get("table#productTable>tbody>tr")
+                .each(($row, index, $rows) => {
+                    cy.wrap($row).within(() => {
+                        cy.get("td").each(($column, index, $columns) => {
+                            cy.log($column.text())
+                        })
+                    })
+                })
+            }
+        }
+    })
 })
