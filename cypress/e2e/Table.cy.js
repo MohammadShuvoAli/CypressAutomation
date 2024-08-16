@@ -15,4 +15,17 @@ describe('Handle Tables', () => {
         cy.get("table#productTable>tbody>tr:nth-child(4)>td:nth-child(2)").contains("Product 4")
         cy.get("table#productTable>tbody>tr:nth-child(4)>td:nth-child(3)").contains("$7.99")
     })
+
+    it('read all rows & columns data in the first page', () => {
+        cy.visit("https://testautomationpractice.blogspot.com/")
+        // reading all cell data
+        cy.get("table#productTable>tbody>tr")
+        .each(($row, index, $rows) => {
+            cy.wrap($row).within(() => {
+                cy.get("td").each(($column, index, $columns) => {
+                    cy.log($column.text())
+                })
+            })
+        })
+    })
 })
