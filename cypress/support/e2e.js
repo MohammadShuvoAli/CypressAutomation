@@ -17,6 +17,6 @@
 import './commands'
 require('cypress-xpath');
 require('cypress-iframe');
-
+require('@4tw/cypress-drag-drop');
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
