@@ -1,5 +1,5 @@
 /*
-Hooks in Cypress
+Types of Hooks in Cypress
 Before
 After
 BeforeEach
