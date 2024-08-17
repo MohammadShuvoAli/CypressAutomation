@@ -15,4 +15,11 @@ describe("Mouse Operations", () => {
         cy.get('.context-menu-icon-edit > span').should("be.visible")
         cy.get(".context-menu-icon-quit").click()
     })
+
+    it("Mouse Right Click - Method 2", () => {
+        cy.visit("https://swisnl.github.io/jQuery-contextMenu/demo.html")
+        cy.get("span[class='context-menu-one btn btn-neutral']").rightclick()
+        cy.get('.context-menu-icon-edit > span').should("be.visible")
+        cy.get(".context-menu-icon-quit").click()
+    })
 })
