@@ -28,4 +28,14 @@ describe("File Uploads", () => {
         // validate dropped file
         cy.get('#drag-drop-upload > .dz-preview > .dz-details > .dz-filename > span').should("be.visible").and("contain", "test1.pdf")
     })
+
+    it("multiple file uploads", () => {
+        cy.visit("https://davidwalsh.name/demo/multiple-file-upload.php")
+        // upload multiple files at once
+        cy.get("#filesToUpload").attachFile(["test1.pdf", "test2.pdf"])
+        cy.get("#main > div > p:nth-child(6) > strong").should("be.visible").and("contain", "Files You Selected:")
+        // verifying file names
+        cy.get("ul#fileList>li:nth-child(1)").contains("test1.pdf")
+        cy.get("ul#fileList>li:nth-child(2)").contains("test2.pdf")
+    })
 })
