@@ -42,4 +42,14 @@ describe("Mouse Operations", () => {
 
         cy.get("#box5").drag("#box105", {force:true})
     })
+
+    it("Scrolling Page", () => {
+        cy.visit("https://en.wikipedia.org/wiki/Bangladesh")
+
+        // scroll down
+        cy.get("#Corruption").scrollIntoView({duration:3000}).should("be.visible").contains("Corruption")
+
+        // scroll up 
+        cy.get("#War_of_Independence").scrollIntoView({duration:3000}).should("be.visible").contains("War of Independence")
+    })
 })
