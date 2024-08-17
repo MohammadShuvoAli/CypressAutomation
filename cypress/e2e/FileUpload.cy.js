@@ -38,4 +38,11 @@ describe("File Uploads", () => {
         cy.get("ul#fileList>li:nth-child(1)").contains("test1.pdf")
         cy.get("ul#fileList>li:nth-child(2)").contains("test2.pdf")
     })
+
+    it("file upload - shadow dom", () => {
+        cy.visit("https://www.htmlelements.com/demos/fileupload/shadow-dom/index.htm")
+
+        cy.get(".smart-browse-input", {includeShadowDom:true}).attachFile("test1.pdf")
+        cy.get(".smart-item-name", {includeShadowDom:true}).contains("test1.pdf")
+    })
 })
