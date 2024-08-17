@@ -9,5 +9,10 @@ describe("Mouse Operations", () => {
         cy.get("#narbar-menu > ul > li:nth-child(3) > div > div > ul > li:nth-child(2) > a").should("be.visible")
     })
 
-    
+    it("Mouse Right Click - Method 1", () => {
+        cy.visit("https://swisnl.github.io/jQuery-contextMenu/demo.html")
+        cy.get("span[class='context-menu-one btn btn-neutral']").trigger("contextmenu")
+        cy.get('.context-menu-icon-edit > span').should("be.visible")
+        cy.get(".context-menu-icon-quit").click()
+    })
 })
