@@ -23,14 +23,26 @@ describe("Mouse Operations", () => {
         cy.get(".context-menu-icon-quit").click()
     })
 
-    it("Double Click", () => {
+    it("Double Click - Method 1", () => {
         cy.visit("https://testautomationpractice.blogspot.com/")
         // check heading
         cy.get("div[id='HTML10'] h2[class='title']").should("be.visible").contains("Double Click")
         // check first field value
         cy.get('#field1').should("be.visible").should("have.value", "Hello World!")
-        // click on button
+        // double click on button
         cy.get("button[ondblclick='myFunction1()']").trigger("dblclick").click()
+        // check if values has been copied to field 2
+        cy.get('#field2').should("be.visible").should("have.value", "Hello World!")
+    })
+
+    it("Double Click - Method 2", () => {
+        cy.visit("https://testautomationpractice.blogspot.com/")
+        // check heading
+        cy.get("div[id='HTML10'] h2[class='title']").should("be.visible").contains("Double Click")
+        // check first field value
+        cy.get('#field1').should("be.visible").should("have.value", "Hello World!")
+        // double click on button
+        cy.get("button[ondblclick='myFunction1()']").dblclick()
         // check if values has been copied to field 2
         cy.get('#field2').should("be.visible").should("have.value", "Hello World!")
     })
