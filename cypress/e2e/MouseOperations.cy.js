@@ -34,4 +34,12 @@ describe("Mouse Operations", () => {
         // check if values has been copied to field 2
         cy.get('#field2').should("be.visible").should("have.value", "Hello World!")
     })
+
+    it("Drag and Drop using plugin", () => {
+        cy.visit("http://www.dhtmlgoodies.com/scripts/drag-drop-custom/demo-drag-drop-3.html")
+
+        //cy.get("#box5").drag("#box105")
+
+        cy.get("#box5").drag("#box105", {force:true})
+    })
 })
