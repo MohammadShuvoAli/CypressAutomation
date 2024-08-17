@@ -35,3 +35,8 @@ Cypress.Commands.add('getIframe', (iframe) => {
             return cy.wrap(body); // Return the wrapped body to continue chaining
         });
 });
+
+// custom commad for linktext like selenium
+Cypress.Commands.add('linkText', (label) => {
+    cy.get('a').contains(label);
+})
