@@ -1,8 +1,8 @@
 describe("Capture Screenshot and videos", ()=>{
-    it("Capture Screenshot",()=>{
-        cy.visit("https://bangladesh.gov.bd/index.php")
-        cy.screenshot("Homepage")
-
-        cy.get("div[class='six columns logo']>a>img").screenshot("Logo")
-    })
-})
+    it.skip("Capture Screenshot",()=>{
+        cy.visit("https://demo.opencart.com/");
+        cy.wait(5000);
+        cy.screenshot("Homepage");
+        cy.get("#logo > a > .img-fluid").screenshot("Logo");
+    });
+});
