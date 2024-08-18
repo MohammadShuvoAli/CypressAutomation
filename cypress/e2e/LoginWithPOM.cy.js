@@ -1,5 +1,7 @@
+import Login from "../PageObjects/LoginPage"
+
 describe("POM", ()=>{
-    it("login test with POM", ()=>{
+    it("login test without POM", ()=>{
         cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php")
 
         // fill form
@@ -7,5 +9,19 @@ describe("POM", ()=>{
         cy.get("input[placeholder='Password']").type("admin123")
         // login
         cy.get("button[type='submit']").click()
+        //verify login
+        cy.get(".oxd-text.oxd-text--h6.oxd-topbar-header-breadcrumb-module").contains("Dashboard")
     })
+
+    it("login test with POM", ()=>{
+        cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php")
+
+        const ln = new Login()
+        ln.setUsername("Admin")
+        ln.setPassword("admin123")
+        ln.clickSubmit()
+        ln.verifyLogin()
+    })
+
+    
 })
