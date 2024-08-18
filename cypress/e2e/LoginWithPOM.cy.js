@@ -23,5 +23,15 @@ describe("POM", ()=>{
         ln.verifyLogin()
     })
 
-    
+    it("data driven login test with POM", ()=>{
+        cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php")
+
+        cy.fixture("orangehrm").then((data) => {
+            const ln = new Login()
+            ln.setUsername(data.username)
+            ln.setPassword(data.password)
+            ln.clickSubmit()
+            ln.verifyLogin()
+        })
+    })
 })
