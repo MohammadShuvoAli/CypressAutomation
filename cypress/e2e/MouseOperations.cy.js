@@ -1,12 +1,12 @@
 describe("Mouse Operations", () => {
     it("Mouse Hover", () => {
-        cy.visit("https://demo.opencart.com/")
+        cy.visit("https://magento.softwaretestingboard.com/")
         // drop down menu option should not be visible
-        cy.get("#narbar-menu > ul > li:nth-child(3) > div > div > ul > li:nth-child(2) > a").should("not.be.visible")
+        cy.get("a[id='ui-id-9'] span:nth-child(2)").should("not.be.visible")
         // hover over menu
-        cy.get("div#narbar-menu>ul>li:nth-child(3)").trigger("mouseover").click()
+        cy.get("#ui-id-4").trigger("mouseover")
         // option should be present
-        cy.get("#narbar-menu > ul > li:nth-child(3) > div > div > ul > li:nth-child(2) > a").should("be.visible")
+        cy.get("a[id='ui-id-9'] span:nth-child(2)").should("be.visible")
     })
 
     it("Mouse Right Click - Method 1", () => {
