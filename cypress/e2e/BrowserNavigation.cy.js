@@ -1,17 +1,16 @@
 describe("Browser Navigation", () => {
     it("Navigation Test", () => {
-        cy.visit("https://demo.opencart.com/")
+        cy.visit("https://www.globalsqa.com/demo-site/")
         cy.wait(5000)
-        cy.title().should("eq", "Your Store");
+        cy.title().should("eq", "Testing Demo Site | Practice Website For Automation - Global SQA");
 
-        cy.get(".nav > :nth-child(1) > .dropdown-toggle").trigger("mouseover").click()
-        cy.get("#narbar-menu > ul > li:nth-child(1) > div > div > ul > li:nth-child(2) > a").click()
-        cy.get("div[id='content'] h2").contains("Desktops")
+        cy.get("li[id='menu-item-6898'] a").click()
+        cy.get("div[class='page_heading'] h1").contains("List Of CheatSheets")
 
         cy.go("back") // home
-        cy.title().should("eq", "Your Store");
+        cy.title().should("eq", "Testing Demo Site | Practice Website For Automation - Global SQA");
 
-        cy.go("forward") // desktop
-        cy.get("div[id='content'] h2").contains("Desktops")
+        cy.go("forward") // cheat page
+        cy.get("div[class='page_heading'] h1").contains("List Of CheatSheets")
     })
 })
